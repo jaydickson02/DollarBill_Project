@@ -1,0 +1,31 @@
+{
+  "name": "dollar_bills",
+  "version": "1.0.0",
+  "description": "A webapp to manage bill due dates",
+  "main": "Server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaydickson02/DollarBill_Project.git"
+  },
+  "keywords": [
+    "bills",
+    "javascript",
+    "node",
+    "calendar",
+    "managment"
+  ],
+  "author": "Zeeshan & JAY",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/jaydickson02/DollarBill_Project/issues"
+  },
+  "homepage": "https://github.com/jaydickson02/DollarBill_Project#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "pug": "^2.0.3"
+  }
+}
