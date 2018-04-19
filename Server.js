@@ -18,15 +18,27 @@ app.route('/signin')
     res.render('signin');
   })
   .post(function(req, res){
-    res.render('signin');
     var email = req.body.email;
-    var password = req.body.password;
-    var passwordtrue = db.select(email);
-    console.log("password: " + password);
-    console.log("Actual password: " + passwordtrue);
-    if(password == passwordtrue){
-    res.render('user', {h1:"Hello " + email})
-  }
+
+    db.select(email, res, req, function(result, res, req){
+      var password = req.body.password;
+
+      if(result[0] == undefined){
+
+        res.render('signin');
+
+      } else if(password == result[0]['password']){
+
+        res.render('user', {h1:"Hello " + email});
+
+      } else {
+
+      res.render('signin');
+
+    }
+  })
+
+
   })
 
 app.route('/contact').get(function(req, res){

@@ -1,11 +1,11 @@
 var mysql = require('mysql');
 
-exports.insert = function(email, password) {
+exports.insert = function(email, password, name) {
 
   var con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "02jd.pass0706",
+    password: "dollarbillsmysql1357jz",
     database: "credentials"
   });
 
@@ -15,18 +15,16 @@ exports.insert = function(email, password) {
 
   });
 
-  con.query('INSERT INTO auth (email, password) VALUES ('+con.escape(email)+','+con.escape(password)+')' , function(err, result) {
+  con.query('INSERT INTO auth (email, password, name) VALUES ('+con.escape(email)+','+con.escape(password)+','+con.escape(name)+')' , function(err, result) {
     if (err) {
       console.log(err);
       return;
     };
-
-    console.log('Sql: ' + result);
   });
 
 };
 
-exports.select = function(email) {
+exports.select = function(email, res, req, callback) {
 console.log(email);
   var con = mysql.createConnection({
     host: "localhost",
@@ -50,11 +48,10 @@ console.log(email);
     //console.log('Email1: ' + result[0]['email']);
   if(result[0] == undefined){
     console.log('Email not found');
-    return('Not Found');
+    callback(result, res, req);
 
   } else {
-    console.log(result[0]['password']);
-    return(result[0]['password']);
+    callback(result, res, req);
   }
 
   });
