@@ -6,7 +6,7 @@ exports.insert = function(email, password) {
     host: "localhost",
     user: "root",
     password: "02jd.pass0706",
-    database: "credentials";
+    database: "credentials"
   });
 
   con.connect(function(err) {
@@ -15,7 +15,7 @@ exports.insert = function(email, password) {
 
   });
 
-  con.query('INSERT INTO auth (email, password) VALUES (?)', con.escape(email, password), function(err, result) {
+  con.query('INSERT INTO auth (email, password) VALUES ('+ con.escape(email) + con.escape(password) +')' , function(err, result) {
     if (err) {
       console.log(err);
       return;
@@ -23,6 +23,7 @@ exports.insert = function(email, password) {
 
     console.log('Sql: ' + result);
   });
+
 };
 
 exports.select = function(email) {

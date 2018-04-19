@@ -1,5 +1,5 @@
 var express = require('express');
-var db = require('DBQuery');
+var db = require('./DBQuery');
 var app = express();
 
 app.set('view engine', 'pug');
@@ -22,9 +22,7 @@ app.route('/signup').get(function(req, res){
   res.render('signup');
   var email = req.query.email;
   var password = req.query.password;
-  if(email & password){
   db.insert(email, password);
-};
 })
 
 app.route('/').get(function(req, res){
