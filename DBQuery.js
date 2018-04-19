@@ -15,7 +15,7 @@ exports.insert = function(email, password) {
 
   });
 
-  con.query('INSERT INTO auth (email, password) VALUES ('+ con.escape(email) + con.escape(password) +')' , function(err, result) {
+  con.query('INSERT INTO auth (email, password) VALUES ('+con.escape(email)+','+con.escape(password)+')' , function(err, result) {
     if (err) {
       console.log(err);
       return;

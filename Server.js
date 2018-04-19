@@ -11,7 +11,9 @@ app.get('/user/:username', function(req, res){
 });
 
 app.route('/signin').get(function(req, res){
+
   res.render('signin');
+
 });
 
 app.route('/contact').get(function(req, res){
