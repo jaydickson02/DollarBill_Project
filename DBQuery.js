@@ -27,7 +27,7 @@ exports.insert = function(email, password) {
 };
 
 exports.select = function(email) {
-
+console.log(email);
   var con = mysql.createConnection({
     host: "localhost",
     user: "root",
@@ -41,13 +41,21 @@ exports.select = function(email) {
 
   });
 
-  con.query('SELECT password FROM auth WHERE email = ?', con.escape(email), function(err, result) {
+  con.query('SELECT password FROM auth WHERE email = ' + con.escape(email) , function(err, result) {
     if (err) {
       console.log(err);
       return;
     };
 
     //console.log('Email1: ' + result[0]['email']);
-    return(result[0]['email']);
+  if(result[0] == undefined){
+    console.log('Email not found');
+    return('Not Found');
+
+  } else {
+    console.log(result[0]['password']);
+    return(result[0]['password']);
+  }
+
   });
 };
