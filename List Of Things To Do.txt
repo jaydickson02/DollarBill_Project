@@ -1,7 +1,0 @@
-Sign up Page
-Sign in / Sign up
-Customised Welcome Page
-Personalised User Page
-Hash Password with Node
-SQL Database for bill dates
-Design the calendar template
