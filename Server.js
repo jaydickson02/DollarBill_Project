@@ -55,7 +55,8 @@ app.route('/signup')
     res.render('signup');
     var email = req.body.email;
     var password = req.body.password;
-    db.insert(email, password);
+    var name = req.body.name;
+    db.insert(email, password, name);
   })
 
 app.route('/')
