@@ -18,7 +18,7 @@
     "calendar",
     "managment"
   ],
-  "author": "Zeeshan & JAY",
+  "author": "Zeeshan & Jay",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/jaydickson02/DollarBill_Project/issues"
@@ -26,6 +26,7 @@
   "homepage": "https://github.com/jaydickson02/DollarBill_Project#readme",
   "dependencies": {
     "express": "^4.16.3",
+    "mysql": "^2.15.0",
     "pug": "^2.0.3"
   }
 }
