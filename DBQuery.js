@@ -29,7 +29,7 @@ console.log(email);
   var con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "02jd.pass0706",
+    password: "dollarbillsmysql1357jz",
     database: 'credentials'
   });
 
