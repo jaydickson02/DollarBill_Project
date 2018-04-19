@@ -51,11 +51,11 @@ app.route('/signup')
   })
 
   .post(function(req, res){
-    res.render('signup');
     var email = req.body.email;
     var password = req.body.password;
     var name = req.body.name;
     db.newUser(email, password, name);
+    res.render('signin');
   })
 
 app.route('/')
