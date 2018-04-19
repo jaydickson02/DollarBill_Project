@@ -1,4 +1,5 @@
 Sign up Page
 Customised Welcome Page
 Personalised User Page
+Hash Password with Node
 SQL Database
