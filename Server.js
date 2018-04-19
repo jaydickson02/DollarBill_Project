@@ -20,16 +20,15 @@ app.route('/signin')
   .post(function(req, res){
     var email = req.body.email;
 
-    db.select(email, res, req, function(result, res, req){
+    db.selectProfileWithEmail(email, res, req, function(result, res, req){
       var password = req.body.password;
-
       if(result[0] == undefined){
 
         res.render('signin');
 
       } else if(password == result[0]['password']){
-
-        res.render('user', {h1:"Hello " + email});
+        console.log("Profile Found!");
+        res.render('user', {h1:"Hello " + result[0]['name']});
 
       } else {
 
@@ -56,7 +55,7 @@ app.route('/signup')
     var email = req.body.email;
     var password = req.body.password;
     var name = req.body.name;
-    db.insert(email, password, name);
+    db.newUser(email, password, name);
   })
 
 app.route('/')
