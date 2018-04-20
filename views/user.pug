@@ -1,2 +1,12 @@
+mixin cal(bills, dates)
+  - var i = 0;
+  ul
+    for bill in bills
+      li= bill + ' @ ' + dates[i]
+      - i = i + 1;
+      
+      
+      
 html
-  h1=h1
+
+  +cal(billsL, datesL)

@@ -62,7 +62,12 @@ app.route('/')
 .get(function(req, res){
   res.render('welcome');
 });
+var bills = ['FOOD!', 'gas payment', 'phone Bill'];
+var dates = ['10/3/19', '13/1/3', '16/13/16'];
 
+app.route('/users').get(function(req, res){
+  res.render('user', {billsL:bills, datesL:dates});
+})
 
 
 var server = app.listen(3000,function() {
