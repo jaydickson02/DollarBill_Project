@@ -1,0 +1,14 @@
+CREATE TABLE users
+(ID int NOT NULL AUTO_INCREMENT,
+email VARCHAR(80),
+password VARCHAR(30),
+name VARCHAR(80),
+PRIMARY KEY (ID)
+);
+
+CREATE TABLE content
+(
+ID int NOT NULL,
+listing VARCHAR(100),
+date VARCHAR(8)
+);

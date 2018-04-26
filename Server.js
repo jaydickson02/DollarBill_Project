@@ -13,6 +13,15 @@ app.get('/user/:username', function(req, res){
   res.render('index',{title:username, message:"Hello " + username });
 });
 
+app.route('/user')
+  .get('/user/:username',function(req, res){
+    var username = req.params.username;
+    res.render('user', )
+  })
+  .post(function(req, res) {
+
+  })
+
 app.route('/signin')
   .get(function(req, res){
     res.render('signin');
@@ -22,17 +31,17 @@ app.route('/signin')
 
     db.selectProfileWithEmail(email, res, req, function(result, res, req){
       var password = req.body.password;
-      if(result[0] == undefined){
 
-        res.render('signin');
+      if(result[0] == undefined){
+        console.log("Email not in database. Redirecting to Signup page")
+        res.redirect('signup');
 
       } else if(password == result[0]['password']){
         console.log("Profile Found!");
-        res.render('user', {h1:"Hello " + result[0]['name']});
+        res.render('/user/' + result[0][id]);
 
       } else {
-
-      res.render('signin');
+        res.render('signin');
 
     }
   })
@@ -55,7 +64,7 @@ app.route('/signup')
     var password = req.body.password;
     var name = req.body.name;
     db.newUser(email, password, name);
-    res.render('signin');
+    res.redirect('signin');
   })
 
 app.route('/')
