@@ -8,10 +8,10 @@ mixin cal(bills, dates)
       
       
 html
-
+  h1= h1
   +cal(billsL, datesL)
   
   form(method="post")
     input(name='bill' required) 
-    input(name='date' required) //Make non required later
+    input(name='date' required)
     input(type='submit')

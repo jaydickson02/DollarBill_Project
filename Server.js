@@ -8,18 +8,20 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.set('view engine', 'pug');
 app.use(express.static('public'));
 
-app.get('/user/:username', function(req, res){
+
+app.route('/user/:username')
+
+.get(function(req, res){
   var username = req.params.username;
-  res.render('index',{title:username, message:"Hello " + username });
-});
 
-app.route('/user')
-  .get('/user/:username',function(req, res){
-    var username = req.params.username;
-    res.render('user', )
-  })
+  var bills = ['FOOD!', 'gas payment', 'phone Bill'];
+  var dates = ['10/3/19', '13/1/3', '16/13/16'];
+
+  res.render('user', {billsL:bills, datesL:dates, h1: username});
+})
+
   .post(function(req, res) {
-
+    console.log('Hello');
   })
 
 app.route('/signin')
@@ -68,14 +70,9 @@ app.route('/signup')
   })
 
 app.route('/')
+
 .get(function(req, res){
   res.render('welcome');
-});
-var bills = ['FOOD!', 'gas payment', 'phone Bill'];
-var dates = ['10/3/19', '13/1/3', '16/13/16'];
-
-app.route('/users').get(function(req, res){
-  res.render('user', {billsL:bills, datesL:dates});
 })
 
 
