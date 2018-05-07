@@ -40,7 +40,8 @@ app.route('/signin')
 
       } else if(password == result[0]['password']){
         console.log("Profile Found!");
-        res.render('/user/' + result[0][id]);
+        res.redirect('/user/' + result[0]['name']);ß
+        //res.render('/user/' + result[0][id]);
 
       } else {
         res.render('signin');
