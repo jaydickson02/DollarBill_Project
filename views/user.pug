@@ -1,17 +1,20 @@
-mixin cal(bills, dates)
-  - var i = 0;
-  ul
-    for bill in bills
-      li= bill + ' @ ' + dates[i]
-      - i = i + 1;
-      
-      
-      
+mixin cal(results)
+  ul(class="list-group")
+    each result in results
+      li(class="list-group-item", style="font-size:20; text-align:left;")
+        span=result.listing
+        span &nbsp;due on the&nbsp;
+        span=result.date
+    
+          
 html
-  h1= h1
-  +cal(billsL, datesL)
+  head
+    link(rel='stylesheet', href='/css/bootstrap.css')
+    script(src="/js/bootstrap.bundle.js")
+  header(style="padding-bottom:2%;")
+    include html/navbar.html
+  div(class="container-fluid")
+    +cal(array)
+  div(class="container-fluid" style="padding-top:2%;")
+    include html/newcontentform.html
   
-  form(method="post")
-    input(name='bill' required) 
-    input(name='date' required)
-    input(type='submit')
