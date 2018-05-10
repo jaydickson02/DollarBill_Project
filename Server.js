@@ -140,7 +140,7 @@ app.route('/user')
 
       //If user is signed in, Load content from database on the page
       db.GetContent(req.session.user.id, function(result) {
-        console.log(result)
+
         res.render('user', {"array": result, name: req.session.user.name});
 
       });
@@ -166,7 +166,7 @@ app.route('/user')
 
     //Refreshes page content
     db.GetContent(req.session.user.id, function(result) {
-      console.log(result)
+
       res.render('user', {"array": result, "name": req.session.user.name});
 
     });
