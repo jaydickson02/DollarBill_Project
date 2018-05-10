@@ -58,8 +58,8 @@ exports.GetContent = function(userid, callback) {
   });
 };
 
-exports.RemoveContent = function(userid, listing) { //Do with a id
-  con.query('DELETE FROM content WHERE listing = ' + con.escape(listing) + ' AND id = ' + con.escape(userid), function(err, result) {
+exports.RemoveContent = function(userid, contentID) { //Do with a id
+  con.query('DELETE FROM content WHERE contentID = ' + con.escape(contentID) + ' AND id = ' + con.escape(userid), function(err, result) {
     if (err) {
       console.log(err);
       return;

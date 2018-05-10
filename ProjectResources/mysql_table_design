@@ -8,8 +8,9 @@ PRIMARY KEY (ID)
 
 CREATE TABLE content
 (
+contentID int NOT NULL AUTO_INCREMENT,
 ID int NOT NULL,
 listing VARCHAR(100),
-date VARCHAR(20)
-
+date VARCHAR(20),
+PRIMARY KEY (contentID)
 );
